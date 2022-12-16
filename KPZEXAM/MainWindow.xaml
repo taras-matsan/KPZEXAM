@@ -1,0 +1,54 @@
+﻿<Window xmlns:Views="clr-namespace:KPZEXAM.Views"  x:Class="KPZEXAM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KPZEXAM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Column="0">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<StackPanel Grid.Row="0">
+					<Views:FilmUserControl x:Name="Filmcontrol" DataContext="{Binding Path=Films}" Margin="5"/>
+					<Views:SubscriberUserControl x:Name="Subscribercontrol" DataContext="{Binding Path=Subscribers}" Visibility="Collapsed" Margin="5"/>
+					<Views:CommentUserControl x:Name="Commentcontrol" DataContext="{Binding Path=Comments}" Visibility="Collapsed" Margin="5"/>
+					<Views:ReviewUserControl x:Name="Reviewcontrol" DataContext="{Binding Path=Reviews}" Visibility="Collapsed" Margin="5"/>
+				</StackPanel>
+				<StackPanel Grid.Row="1">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<Button Grid.Column="0" Height="30" x:Name="Film" Margin="5" Content="Film" Click="Film_Click" />
+						<Button Grid.Column="1" x:Name="Subscriber" Margin="5" Content="Subscriber" Click="Subscriber_Click" />
+						<Button Grid.Column="2" x:Name="Comment" Margin="5" Content="Comment" Click="Comment_Click" />
+						<Button Grid.Column="3" x:Name="Review" Margin="5" Content="Review" Click="Review_Click" />
+					</Grid>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<StackPanel Grid.Column="1">
+			<Label Content="name/nick/text" Margin="10, 5" />
+			<TextBox x:Name="boxname" Margin="10, 5" Height="30"/>
+			<Label Content="path" Margin="10, 5" />
+			<TextBox x:Name="boxpath" Margin="10, 5" Height="30"/>
+			<Label Content="ID to delete" Margin="10, 5" />
+			<TextBox x:Name="boxid" Margin="10, 5" Height="30"/>
+			<Button x:Name="add" Content="Add" Margin="10, 5" Height="30" Click="Button_Add_Click"/>
+			<Button x:Name="change" Content="Change" Margin="10, 5" Height="30" Click="Button_Change_Click"/>
+			<Button x:Name="delete" Content="Delete" Margin="10, 5" Height="30" Click="Button_Click"/>
+		</StackPanel>
+	</Grid>
+</Window>
